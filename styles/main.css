@@ -1,0 +1,58 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap");
+:root {
+  --background: hsl(0, 0%, 18.82%);
+  --side-bar:hsl(0, 0%, 12%);
+  --dark: hsl(0, 0%, 7%);
+  --blue:hsl(216, 98%, 57%);
+}
+
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.cointainer {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr auto;
+      grid-template-columns: 1fr auto;
+  -ms-grid-rows: 1fr auto;
+      grid-template-rows: 1fr auto;
+  height: 100vh;
+  background-color: var(--background);
+}
+
+.image-view {
+  grid-area: "image";
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 1;
+  grid-column: 1/2;
+  -ms-grid-row: 1;
+  -ms-grid-row-span: 1;
+  grid-row: 1/2;
+}
+
+.sidebar {
+  grid-area: "sidebar";
+  -ms-grid-column: 2;
+  -ms-grid-column-span: 1;
+  grid-column: 2/3;
+  -ms-grid-row: 1;
+  -ms-grid-row-span: 2;
+  grid-row: 1/3;
+  background-color: var(--side-bar);
+}
+
+.slider {
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 1;
+  grid-column: 1/2;
+  -ms-grid-row: 2;
+  -ms-grid-row-span: 1;
+  grid-row: 2/3;
+  padding: 2em;
+  margin-top: 2em;
+}
+/*# sourceMappingURL=main.css.map */
