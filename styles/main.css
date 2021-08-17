@@ -4,6 +4,8 @@
   --side-bar:hsl(0, 0%, 12%);
   --dark: hsl(0, 0%, 7%);
   --blue:hsl(216, 98%, 57%);
+  --dark-blue:hsl(216, 98%, 30%);
+  --text: #fff;
 }
 
 * {
@@ -11,6 +13,7 @@
           box-sizing: border-box;
   margin: 0;
   padding: 0;
+  font-family: 'Open Sans', sans-serif;
 }
 
 .cointainer {
@@ -32,6 +35,10 @@
   -ms-grid-row: 1;
   -ms-grid-row-span: 1;
   grid-row: 1/2;
+  background-image: url(../Assets/unsplash.jpg);
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
 }
 
 .sidebar {
@@ -43,6 +50,62 @@
   -ms-grid-row-span: 2;
   grid-row: 1/3;
   background-color: var(--side-bar);
+  color: var(--text);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: stretch;
+      -ms-flex-align: stretch;
+          align-items: stretch;
+  overflow: hidden;
+}
+
+.sidebar .option {
+  padding: 1em 2em;
+  background-color: transparent;
+  position: relative;
+  -webkit-transition: all 300ms ease-in-out;
+  transition: all 300ms ease-in-out;
+}
+
+.sidebar .option h3 {
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  font-weight: 600;
+  text-align: center;
+}
+
+.sidebar .option.selected {
+  background-color: var(--blue);
+}
+
+.sidebar .option.selected h3 {
+  color: var(--dark-blue);
+  font-weight: 700;
+}
+
+.sidebar .option.selected::after {
+  display: none;
+}
+
+.sidebar .option::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  -webkit-transform: translateX(20%);
+          transform: translateX(20%);
+  height: 2px;
+  width: 70%;
+  background-color: #404040;
+}
+
+.sidebar .option:last-child::after {
+  display: none;
 }
 
 .slider {
@@ -52,7 +115,14 @@
   -ms-grid-row: 2;
   -ms-grid-row-span: 1;
   grid-row: 2/3;
-  padding: 2em;
+  padding: 2em 5em;
   margin-top: 2em;
+  display: -ms-grid;
+  display: grid;
+  place-items: center;
+}
+
+.slider input {
+  width: 70%;
 }
 /*# sourceMappingURL=main.css.map */
