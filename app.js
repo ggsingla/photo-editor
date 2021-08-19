@@ -92,7 +92,7 @@ for( i = 0; i<option.length;i++){
     sliderV.setAttribute('max', options[sel].range.max)
     sliderV.setAttribute('value', options[sel].value)
     sliderV.oninput = (()=>{
-      image.style.filter += `${options[sel].property}(${sliderV.value}${options[sel].unit})`
+      image.style.filter = `${options[sel].property}(${sliderV.value}${options[sel].unit})`
     })
   })
 }
