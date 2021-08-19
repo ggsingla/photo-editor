@@ -28,7 +28,6 @@
 }
 
 .image-view {
-  grid-area: "image";
   -ms-grid-column: 1;
   -ms-grid-column-span: 1;
   grid-column: 1/2;
@@ -42,7 +41,6 @@
 }
 
 .sidebar {
-  grid-area: "sidebar";
   -ms-grid-column: 2;
   -ms-grid-column-span: 1;
   grid-column: 2/3;
@@ -68,6 +66,7 @@
   padding: 1em 2em;
   background-color: transparent;
   position: relative;
+  cursor: pointer;
   -webkit-transition: all 300ms ease-in-out;
   transition: all 300ms ease-in-out;
 }
@@ -77,6 +76,10 @@
   text-transform: uppercase;
   font-weight: 600;
   text-align: center;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
 }
 
 .sidebar .option.selected {
@@ -123,6 +126,6 @@
 }
 
 .slider input {
-  width: 70%;
+  width: 80%;
 }
 /*# sourceMappingURL=main.css.map */

@@ -12,9 +12,30 @@
     <div class="cointainer">
         <div class="image-view"></div>
         <div class="sidebar">
+            <div class="option selected" id="0">
+                <h3>Brightness</h3>
+            </div>
+            <div class="option" id="1">
+                <h3>Contrast</h3>
+            </div>
+            <div class="option" id="2">
+                <h3>Saturation</h3>
+            </div>
+            <div class="option" id="3">
+                <h3>Grayscale</h3>
+            </div>
+            <div class="option" id="4">
+                <h3>Sepia</h3>
+            </div>
+            <div class="option" id="5">
+                <h3>Hue Rotate</h3>
+            </div>
+            <div class="option" id="6">
+                <h3>Blur</h3>
+            </div>
         </div>
         <div class="slider">
-            <input id="inValue" type="range" step="1" />
+            <input title="Value Adjust" id="inValue" type="range" step="1" min="0" max="200" value="100" oninput=brightness() />
         </div>
     </div>
     <script src="app.js"></script>

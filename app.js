@@ -2,7 +2,7 @@ var options = [
   {
     name: "Brightness",
     property: "brightness",
-    vaule: 100,
+    value: 100,
     range: {
       min: 0,
       max: 200,
@@ -12,7 +12,7 @@ var options = [
   {
     name: "Contrast",
     property: "contrast",
-    vaule: 100,
+    value: 100,
     range: {
       min: 0,
       max: 200,
@@ -21,8 +21,8 @@ var options = [
   },
   {
     name: "Saturation",
-    property: "saturation",
-    vaule: 100,
+    property: "saturate",
+    value: 100,
     range: {
       min: 0,
       max: 200,
@@ -32,7 +32,7 @@ var options = [
   {
     name: "Grayscale",
     property: "grayscale",
-    vaule: 0,
+    value: 0,
     range: {
       min: 0,
       max: 100,
@@ -42,7 +42,7 @@ var options = [
   {
     name: "Sepia",
     property: "sepia",
-    vaule: 0,
+    value: 0,
     range: {
       min: 0,
       max: 100,
@@ -52,7 +52,7 @@ var options = [
   {
     name: "Hue Rotate",
     property: "hue-rotate",
-    vaule: 0,
+    value: 0,
     range: {
       min: 0,
       max: 360,
@@ -62,7 +62,7 @@ var options = [
   {
     name: "Blur",
     property: "blur",
-    vaule: 0,
+    value: 0,
     range: {
       min: 0,
       max: 30,
@@ -70,20 +70,29 @@ var options = [
     unit: "px",
   },
 ];
+
 var image = document.querySelector(".image-view");
 var sidebar = document.querySelector(".sidebar");
-var rng = document.getElementById("inValue"); //input value
+var option = document.querySelectorAll('.option')
+var sliderV = document.getElementById("inValue"); //input value
 
-function menuItem(name,x) {
-  var option = document.createElement("div");
-  option.classList.add("option");
-  option.setAttribute("id", x)
-  var prop = document.createElement("h3");
-  prop.innerHTML = name;
-  option.appendChild(prop);
-  sidebar.appendChild(option);
+function brightness(){
+  image.style.filter = `${options[0].property}(${sliderV.value}${options[0].unit})`
 }
 
-for (let x in options){
-    menuItem(options[x].name , x)
+for( i = 0; i<option.length;i++){
+  option[i].addEventListener('click', function selector() {
+    for(let j = 0; j<option.length;j++){
+      option[j].classList.remove('selected')
+    }
+    this.classList.add('selected')
+    var sel = this.getAttribute('id')
+    console.log(sel)
+    sliderV.setAttribute('min', options[sel].range.min)
+    sliderV.setAttribute('max', options[sel].range.max)
+    sliderV.setAttribute('value', options[sel].value)
+    sliderV.oninput = (()=>{
+      image.style.filter += `${options[sel].property}(${sliderV.value}${options[sel].unit})`
+    })
+  })
 }
